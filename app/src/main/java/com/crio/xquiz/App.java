@@ -3,12 +3,114 @@
  */
 package com.crio.xquiz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "|----- Welcome to XQuiz -----|\n";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        Quiz quiz1 = new Quiz("Java Test");
+        System.out.println(quiz1.getQuizName());
+
+        String text1 = "Which of the following is a correct way to create an array in Java?";
+        List<String> choices1 = new ArrayList<>();
+        choices1.add("int array = new int();");
+        choices1.add("int[] array = new int();");
+        choices1.add("int array[] = new int();");
+        choices1.add("int[] array = new int[5];");
+        Question question1 = new Question(text1, choices1, "int[] array = new int[5];");
+        quiz1.addQuestion(question1);
+
+        String text2 = "What does the 'extends' keyword signify in the context of Java classes?";
+        List<String> choices2 = new ArrayList<>();
+        choices2.add("Implements an interface");
+        choices2.add("Indicates inheritance, a subclass extending a superclass");
+        choices2.add("Declares a constant");
+        choices2.add("Defines an abstract class");
+        Question question2 = new Question(text2, choices2, "Indicates inheritance, a subclass extending a superclass");
+        quiz1.addQuestion(question2);
+
+        String text3 = "What is the correct syntax to declare a variable in Java?";
+        List<String> choices3 = new ArrayList<>();
+        choices3.add("variable int x;");
+        choices3.add("int x = new int;");
+        choices3.add("int x;");
+        choices3.add("declare x as int;");
+        Question question3 = new Question(text3, choices3, "int x;");
+        quiz1.addQuestion(question3);
+
+        String text4 = "Which keyword is used to define a constant in Java?";
+        List<String> choices4 = new ArrayList<>();
+        choices4.add("constant");
+        choices4.add("final");
+        choices4.add("static");
+        choices4.add("const");
+        Question question4 = new Question(text4, choices4, "final");
+        quiz1.addQuestion(question4);
+
+        String text5 = "What is the default value of an instance variable in Java if it is not explicitly initialized?";
+        List<String> choices5 = new ArrayList<>();
+        choices5.add("0");
+        choices5.add("null");
+        choices5.add("-1");
+        choices5.add("Depends on the data type");
+        Question question5 = new Question(text5, choices5, "Depends on the data type");
+        quiz1.addQuestion(question5);
+
+        String text6 = "What is the purpose of the 'this' keyword in Java?";
+        List<String> choices6 = new ArrayList<>();
+        choices6.add("Refers to the current object");
+        choices6.add("Refers to the previous object");
+        choices6.add("Refers to the parent object");
+        choices6.add("Refers to the child object");
+        Question question6 = new Question(text6, choices6, "Refers to the current object");
+        quiz1.addQuestion(question6);
+
+        String text7 = "Which of the following is NOT a primitive data type in Java?";
+        List<String> choices7 = new ArrayList<>();
+        choices7.add("int");
+        choices7.add("float");
+        choices7.add("String");
+        choices7.add("char");
+        Question question7 = new Question(text7, choices7, "String");
+        quiz1.addQuestion(question7);
+
+        String text8 = "What is the role of the 'super' keyword in Java?";
+        List<String> choices8 = new ArrayList<>();
+        choices8.add("Calls a superclass method");
+        choices8.add("Calls a subclass method");
+        choices8.add("Refers to the current object");
+        choices8.add("Initializes an object");
+        Question question8 = new Question(text8, choices8, "Calls a superclass method");
+        quiz1.addQuestion(question8);
+
+        String text9 = "How do you create an object of a class in Java?";
+        List<String> choices9 = new ArrayList<>();
+        choices9.add("new Object();");
+        choices9.add("create Object();");
+        choices9.add("Object.create();");
+        choices9.add("Object new = Object();");
+        Question question9 = new Question(text9, choices9, "new Object();");
+        quiz1.addQuestion(question9);
+
+        String text10 = "What is the output of the following code snippet?\n\tint x = 5;\n\tSystem.out.println(x++);";
+        List<String> choices10 = new ArrayList<>();
+        choices10.add("5");
+        choices10.add("6");
+        choices10.add("4");
+        choices10.add("7");
+        Question question10 = new Question(text10, choices10, "6");
+        quiz1.addQuestion(question10);
+
+        quiz1.attemptQuiz();
+        System.out.println("Score: " + quiz1.getFinalScore() + "/" + quiz1.getQuestions().size());
+
+        System.out.println("Answers");
+        quiz1.revealAnswerKey();
     }
 }
